@@ -1,7 +1,7 @@
-baseURL: https://shravanasati.me
+baseURL: https://aditi-asati.github.io
 
 languageCode: en-us
-title: "Shravan Asati"
+title: "Aditi Asati"
 
 # Use Hugo modules to add theme
 module:
@@ -61,7 +61,7 @@ params:
     favicon: /images/site/favicon.png
 
   # GitHub repo of your site
-  gitRepo: https://github.com/shravanasati/shravanasati.github.io
+  gitRepo: https://github.com/aditi-asati/aditi-asati.github.io
   # Default branch of your Git repo
   gitBranch: main
 
@@ -143,11 +143,12 @@ params:
         # google:
         #   id: G-H4LBG7NDFZ
         # # CounterDev
-        # counterDev:
-        #   id: <your counterdev id>
+        counterDev:
+          id: 2816408a-c813-467e-bcd4-a5d18672e483
+          referrerPolicy: no-referrer-when-downgrade
         # # GoatCounter
-        goatCounter:
-          code: softbubble
+        # goatCounter:
+        #   code: id
         # # Matomo / Piwik
         # matomo:
         #   instance: matomo.example.com

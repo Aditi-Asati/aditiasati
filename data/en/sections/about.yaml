@@ -8,11 +8,11 @@ section:
   template: sections/about.html
 
 # your designation
-designation: CSE Fresher
+designation: BS-MS Graduate with Maths specialization
 # your company information
 company:
-  name: Adani University
-  url: "https://www.adaniuni.ac.in/"
+  name: IISER Tirupati
+  url: "https://www.iisertirupati.ac.in"
 
 # your resume. this file path should be relative to you "static" directory
 # Dreprecated. Use resourceLinks instead.
@@ -20,18 +20,18 @@ company:
 
 # a summary about you
 # summary: 'I am a passionate software engineer with x years of working experience. I built OSS tools for [Kubernetes](https://kubernetes.io/) using GO. My tools help people to deploy their workloads in Kubernetes. Sometimes, I work on some fun projects such as writing a theme, etc.'
-summary: "I am a passionate software developer who's currently studying CSE at Adani University. I love building web servers and CLI tools with Python and Go."
+summary: "I am a passionate machine learning practioner who's currently looking for an injustry position in ML."
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
 socialLinks:
 - name: Email
   icon: "fas fa-envelope"
-  url: "dev.shravan@proton.me"
+  url: "scholar.aditiasati@gmail.com"
 
 - name: Github
   icon: "fab fa-github"
-  url: "https://www.github.com/shravanasati"
+  url: "https://www.github.com/Aditi-Asati"
 
 # - name: Stackoverflow
 #   icon: "fab fa-stack-overflow"
@@ -39,7 +39,7 @@ socialLinks:
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
-  url: "https://linkedin.com/in/shravan-asati"
+  url: "https://linkedin.com/in/aditi-asati-514a36253"
 
 # - name: Twitter
 #   icon: "fab fa-twitter"
@@ -83,10 +83,10 @@ badges:
 #   url: "https://www.credly.com/org/grupo-bancolombia/badge/artificial-intelligence-and-machine-learning"
 #   badge: "https://images.credly.com/size/680x680/images/e027514f-9d07-4b29-862f-fe21a8aaebf1/ae.png"
 
-- type: soft-skill-indicator
-  name: Leadership
-  percentage: 80
-  color: blue
+# - type: soft-skill-indicator
+#   name: Leadership
+#   percentage: 80
+#   color: blue
 
 - type: soft-skill-indicator
   name: Team Work

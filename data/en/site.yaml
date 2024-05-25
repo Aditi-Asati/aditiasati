@@ -22,8 +22,8 @@ customMenus:
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Shravan's Blog
+  title: Aditi's Blog
   type: website
-  description: Portfolio and personal blog of Shravan Asati.
+  description: Portfolio and personal blog of Aditi Asati.
   image: images/author/john.png
   url: https://hugo-toha.github.io

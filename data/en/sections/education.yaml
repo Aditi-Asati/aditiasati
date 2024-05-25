@@ -31,36 +31,51 @@ degrees:
 #   - title: Nullam vitae orci tincidunt purus viverra pulvinar.
 #     url: "#"
 
-- name: B.Tech. in Computer Science & Engineering
+- name: BS-MS with Maths specialization
   icon: fa-graduation-cap
-  timeframe: 2023-2027
+  timeframe: 2019-2024
   institution:
-    name: Adani University
-    url: "https://adaniuni.ac.in"
+    name: IISER Tirupati
+    url: "https://www.iisertirupati.ac.in"
     logo: /images/sections/education/university.png
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/education/university.jpg
   grade: #(optional)
     scale: CGPA
-    achieved: 9.05
+    achieved: 7.6
     outOf: 10
-  # takenCourses: #(optional)
-    ## if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-    # showGrades: true
-    # collapseAfter: 3
-    # courses:
-    # - name: Data Structures and Algorithm
-    #   achieved: 3.75
-    #   outOf: 4
-    # - name: Network Security
-    #   achieved: 3.80
-    #   outOf: 4
-    # - name: Operating System
-    #   achieved: 3.5
-    #   outOf: 4
-    # - name: Artificial Intelligent
-    #   achieved: 3.75
-    #   outOf: 4
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: false
+    collapseAfter: 3
+    courses:
+    - name: Data Science I
+      achieved: 3.75
+      outOf: 4
+    - name: Data Science II
+      achieved: 3.80
+      outOf: 4
+    - name: Graph Theory
+      achieved: 3.5
+      outOf: 4
+    - name: Computational Methods
+      achieved: 3.75
+      outOf: 4
+    - name: Linear Algebra
+      achieved: 3.75
+      outOf: 4
+    - name: Single and Multivariable Calculus
+      achieved: 3.75
+      outOf: 4
+    - name: Probability and Statistics
+      achieved: 3.75
+      outOf: 4
+    - name: Discrete Mathematics
+      achieved: 3.75
+      outOf: 4
+    - name: Operations Research
+      achieved: 3.75
+      outOf: 4
   # publications: #(optional)
   # - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   #   url: "#"
@@ -79,16 +94,31 @@ degrees:
 
 - name: 12th Grade
   icon: fa-university
-  timeframe: 2021-2023
+  timeframe: 2018-2019
   institution:
-    name: VSG International School
+    name: Dr. Ambedkar College
     url: "https://vsginternationalschool.in/"
     logo: /images/sections/education/school.webp
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/education/science_college.png
   grade: #(optional)
     scale: Percentage
-    achieved: 91.6
+    achieved: 85
+    outOf: 100
+
+    
+- name: 10th Grade
+  icon: fa-university
+  timeframe: 2016-2017
+  institution:
+    name: Sunflag School
+    url: "https://vsginternationalschool.in/"
+    logo: /images/sections/education/school.webp
+    # Can optionally show a different logo for dark theme
+    # darklogo: /images/sections/education/science_college.png
+  grade: #(optional)
+    scale: Percentage
+    achieved: 96.6
     outOf: 100
   # extracurricularActivities: #(optional)
   # - In vitae facilisis est, eget porta sem.

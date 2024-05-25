@@ -2,7 +2,7 @@
 section:
   name: Experiences
   id: experiences
-  enable: false 
+  enable: true 
   weight: 3
   showOnNavbar: true
   # Can optionally hide the title in sections
@@ -11,63 +11,65 @@ section:
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
+    name: Koita Centre for Digital Health, IITB
+    url: "https://www.kcdh.iitb.ac.in/"
+    location: Bombay, India
     logo: /images/sections/experiences/company1.jpg
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company1.jpg
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+    overview: KCDH is focused on driving academic programs, research, and industry collaborations in Digital Health.
   positions:
-  - designation: Senior Software Engineer
-    start: Nov 2019
+  - designation: Master's Thesis Project Student
+    start: Jun 2023
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
+    - Designed and implemented SMOTE interpolation technique to generate synthetic data.
+    - Created pipelines for running various experiments on investigating the effectiveness of synthetic data for brain age prediction.
+    - Read and presented research papers on Data Efficient Machine Learning, Object Detection to academic peers and faculty members.
+    - Guided a BTech student on a research project on semi-supervised object detection. 
 
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
-    responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
+  # - designation: Junior Software Engineer
+  #   start: Nov 2017
+  #   end: Oct 2019
+  #   responsibilities:
+  #   - Implement and test xyz feature for abc tool.
+  #   - Support client for abc tool.
+  #   - Learn k,d,w technology for xyz.
 
 - company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
+    name: IISER Tirupati
+    url: "https://www.iisertirupati.ac.in"
+    location: Tirupati, India
     logo: /images/sections/experiences/company2.jpg
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company2.jpg
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+    overview: IISER Tirupati is established for imparting quality education in basic sciences and for setting up state-of-the-art research in science.
   positions:
-  - designation: Software Engineer
-    start: March 2016
-    end: May 2017
+  - designation: Semester Project Student 
+    start: Jan 2023
+    end: April 2023
     responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
+    - Read about Recurrent Neural Networks (RNN) and Transformers in ML focusing on attention mechanism.
+    - Coded an attention based deep learning model using Keras to predict the DNA binding site of transcription factor by training it on the available data of protein sequences and their respective binding sites.
+    
 
 - company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
-    location: Intern Land
+    name: IISER Pune
+    url: "https://www.iiserpune.ac.in"
+    location: Pune, India
     logo: /images/sections/experiences/company3.jpg
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/experiences/company3.jpg
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
+    overview: IISER Pune is a premier institute dedicated to research and teaching in the basic sciences.
   positions:
-  - designation: Intern
-    start: Jun 2015
-    end: Jan 2016
+  - designation: Summer Intern
+    start: May 2022
+    end: July 2022
     responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.
+    - Learned Python data analysis libraries
+    - Simulated the Hodgkin-Huxley model of the nucleus HVC present inside Zebra finch's brain.
+    - Characterized the electrophysiological properties of the  three different neuron types present in its nucleus HVC.
+    - Read and presented research paper to academic peers and professor.

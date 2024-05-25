@@ -1,19 +1,19 @@
 # some information about you
-name: "Shravan Asati"
-nickname: "Shravan"
+name: "Aditi Asati"
+nickname: "Aditi"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Hi, I am"
 image: "images/author/shravan.png"
 # give your some contact information. they will be used in the footer
 contactInfo:
-  email: "dev.shravan@proton.me"
-  github: shravanasati
-  linkedin: shravan-asati
+  email: "scholar.aditiasati@gmail.com"
+  github: Aditi-Asati
+  linkedin: aditi-asati-514a36253
 
 # some summary about what you do
 summary:
-  - I am a full stack web developer
-  - I love the command line
+  - I am a BS-MS graduate with Maths specialization
+  - I work on research projects in ML
   # - I love servers
-  - I work on open-source projects
-  - I love to work with fun, intriguing projects
+  - I like to work on open-source ML projects
+  - I like writing blogs on ML topics

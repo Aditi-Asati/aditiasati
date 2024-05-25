@@ -1,4 +1,4 @@
-module github.com/shravanasati/shravanasati.github.io
+module github.com/aditi-asati/aditi-asati.github.io
 
 go 1.19
 
