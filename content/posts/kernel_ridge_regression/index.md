@@ -13,7 +13,6 @@ author:
 math: true
 ---
 
-## How to kernelize the Ridge Regression Algorithm
 The ridge regression algorithm learns a linear function to map input points to a real number by minimizing an objective function. The optimization problem in ridge regression is given by:
 
 $$
