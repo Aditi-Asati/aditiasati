@@ -21,28 +21,25 @@ skills:
   summary: "Python is my bread and butter. I am capable to writing servers, CLI tools, data science, automation scripts, tests in it."
   url: "https://python.org"
 
-- name: Go
-  logo: /images/sections/skills/go.png
-  summary: "Capable of writing concurrent, scalable, testable, and maintainable programs."
-  url: "https://go.dev/"
+- name: Scikit-learn
+  logo: /images/sections/skills/scikit-learn_logo.png
+  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+  url: "https://scikit-learn.org/"
 
-- name: JavaScript
-  logo: /images/sections/skills/javascript.svg
+- name: Tensorflow
+  logo: /images/sections/skills/tensorflow_logo.png
   summary: "Capable of writing interactive frontend websites."
   url: "https://developer.mozilla.org/en-US/docs/Web/Javascript"
 
-# - name: Cloud Computing
-#   logo: /images/sections/skills/cloud.png
-#   summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+- name: Pytorch
+  logo: /images/sections/skills/pytorch_logo.png
+  summary: "Capable of writing concurrent, scalable, testable, and maintainable programs."
+  url: "https://go.dev/"
 
-# - name: Docker
-#   logo: /images/sections/skills/docker.svg
-#   summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
-#   url: "https://www.docker.com/"
-
-- name: Linux
-  logo: /images/sections/skills/linux.png
-  summary: "Been using it in form of WSL since last 3 years. Hosted animeviz on a Ubuntu VPS."
+- name: SQL
+  logo: /images/sections/skills/mysql_logo.png
+  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
+  url: "https://www.docker.com/"
 
 - name: Git
   logo: /images/sections/skills/git.png
@@ -50,5 +47,9 @@ skills:
   url: "https://git-scm.com/"
 
 - name: GitHub
-  logo: /images/sections/skills/c++.png
+  logo: /images/sections/skills/github_logo.png
   summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+
+- name: Linux
+  logo: /images/sections/skills/linux.png
+  summary: "Been using it in form of WSL since last 3 years. Hosted animeviz on a Ubuntu VPS."

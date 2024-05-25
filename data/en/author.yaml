@@ -3,7 +3,7 @@ name: "Aditi Asati"
 nickname: "Aditi"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Hi, I am"
-image: "images/author/shravan.png"
+image: "images/author/aditi_edited_3.jpg"
 # give your some contact information. they will be used in the footer
 contactInfo:
   email: "scholar.aditiasati@gmail.com"
@@ -12,8 +12,8 @@ contactInfo:
 
 # some summary about what you do
 summary:
-  - I am a BS-MS graduate with Maths specialization
+  - I'm a BS-MS graduate with Maths specialization
   - I work on research projects in ML
   # - I love servers
-  - I like to work on open-source ML projects
+  # - I like to work on open-source ML projects
   - I like writing blogs on ML topics

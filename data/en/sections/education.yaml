@@ -37,7 +37,7 @@ degrees:
   institution:
     name: IISER Tirupati
     url: "https://www.iisertirupati.ac.in"
-    logo: /images/sections/education/university.png
+    logo: /images/sections/education/insti.png
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/education/university.jpg
   grade: #(optional)
@@ -98,7 +98,7 @@ degrees:
   institution:
     name: Dr. Ambedkar College
     url: "https://vsginternationalschool.in/"
-    logo: /images/sections/education/school.webp
+    logo: /images/sections/education/college.jpg
     # Can optionally show a different logo for dark theme
     # darklogo: /images/sections/education/science_college.png
   grade: #(optional)
@@ -107,19 +107,19 @@ degrees:
     outOf: 100
 
     
-- name: 10th Grade
-  icon: fa-university
-  timeframe: 2016-2017
-  institution:
-    name: Sunflag School
-    url: "https://vsginternationalschool.in/"
-    logo: /images/sections/education/school.webp
-    # Can optionally show a different logo for dark theme
-    # darklogo: /images/sections/education/science_college.png
-  grade: #(optional)
-    scale: Percentage
-    achieved: 96.6
-    outOf: 100
+# - name: 10th Grade
+#   icon: fa-university
+#   timeframe: 2016-2017
+#   institution:
+#     name: Sunflag School
+#     url: "https://vsginternationalschool.in/"
+#     logo: /images/sections/education/school.webp
+#     # Can optionally show a different logo for dark theme
+#     # darklogo: /images/sections/education/science_college.png
+#   grade: #(optional)
+#     scale: Percentage
+#     achieved: 96.6
+#     outOf: 100
   # extracurricularActivities: #(optional)
   # - In vitae facilisis est, eget porta sem.
   # - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
