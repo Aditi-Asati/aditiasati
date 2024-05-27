@@ -367,10 +367,9 @@
     <div class="card-body">
       <a href="/posts/kernel_ridge_regression/" class="post-card-link">
         <h5 class="card-title">How to Kernelize the Ridge Regression Algorithm</h5>
-        <p class="card-text post-summary">How to kernelize the Ridge Regression Algorithm Recall that the optimization problem of ridge regression in feature space is given by:
+        <p class="card-text post-summary">The ridge regression algorithm learns a linear function to map input points to a real number by minimizing an objective function. The optimization problem in ridge regression is given by:
 $$ \min_{w \in \mathbb{R}^d} \frac{1}{n} \sum_{i=1}^{n} \left( Y_i - \langle w, \Phi(X_i) \rangle \right)^2 + \lambda \lVert w \rVert_2^2$$
-We want to add a non-linear component to ridge regression. Hence, we will kernelize the algorithm by using the following result.
-Representer theorem: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively.</p>
+Here, $\lambda$ denotes the tradeoff constant. The first term in the objective function is the training error (also called empirical risk of a predictor function) in terms of linear least squares error.</p>
       </a>
       
         <div class="tags">

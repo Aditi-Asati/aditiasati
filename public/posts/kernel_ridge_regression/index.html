@@ -388,12 +388,13 @@
 
         
         <div class="post-content" id="post-content">
-          <h2 id="how-to-kernelize-the-ridge-regression-algorithm">How to kernelize the Ridge Regression Algorithm</h2>
-<p>Recall that the optimization problem of ridge regression in feature space is given by:</p>
+          <p>The ridge regression algorithm learns a linear function to map input points to a real number by minimizing an objective function. The optimization problem in ridge regression is given by:</p>
 <p>$$
 \min_{w \in \mathbb{R}^d} \frac{1}{n} \sum_{i=1}^{n} \left( Y_i - \langle w, \Phi(X_i) \rangle \right)^2 + \lambda \lVert w \rVert_2^2$$</p>
-<p>We want to add a non-linear component to ridge regression.
-Hence, we will kernelize the algorithm by using the following result.</p>
+<p>Here, $\lambda$ denotes the tradeoff constant. The first term in the objective function is the training error (also called empirical risk of a predictor function) in terms of linear least squares error. The second term is the regularization term penalizing functions which have large L2-norm squared.</p>
+<p>Linear methods like ridge regression work best when the underlying dataset is sort of linear. However, when we use linear methods to model a non-linear dataset, the machine learning model often tends to underfit the dataset as the model class is not strong enough to predict well on such a dataset.</p>
+<p>Kernel methods were introduced to overcome this problem. Kernel methods allow us to implement linear methods on a non-linear dataset by implicitly embedding the input into a high-dimensional euclidean space in which the data-points become linear.</p>
+<p>In this blog, we will kernelize the Ridge Regression algorithm and see an implementation of it on a dataset using <code>scikit-learn</code> library.</p>
 <p><strong>Representer theorem</strong>: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)<em>{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle</em>{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty[ \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.
 Consider the following regularized risk minimization problem:</p>
 <p>$$\min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(|w|_{\mathcal{H}}) \right)$$</p>
@@ -527,11 +528,7 @@ The solution can be derived analytically and is given by</p>
       <h5 class="text-center ps-3">Table of Contents</h5>
       <hr>
       <div class="toc">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#how-to-kernelize-the-ridge-regression-algorithm">How to kernelize the Ridge Regression Algorithm</a></li>
-  </ul>
-</nav>
+        <nav id="TableOfContents"></nav>
       </div>
     </div>
     

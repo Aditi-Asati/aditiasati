@@ -24,7 +24,15 @@ Linear methods like ridge regression work best when the underlying dataset is so
 
 Kernel methods were introduced to overcome this problem. Kernel methods allow us to implement linear methods on a non-linear dataset by implicitly embedding the input into a high-dimensional euclidean space in which the data-points become linear. 
 
-In this blog, we will kernelize the Ridge Regression algorithm and see an implementation of it on a dataset using `scikit-learn` library.
+In this blog, we will learn how to kernelize the Ridge Regression algorithm and also see an implementation of it using `scikit-learn` library.
+
+For we begin, let's familiarize ourselves with two terms which we will use later on. 
+
+- A **kernel function** takes two points in the input space $\mathcal{X}$ and maps them to a real number. Mathematically speaking, a kernel function is a function $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ where $\mathbb{R}$ is the set of all real numbers. Intuitively, kernel function measures how ”similar” two points are in the feature space.
+
+Now that we have understood what kernel functions are, let us understand kernel matrix.
+
+- Given a kernel function $k$ and a set of points $x_1, ..., x_n \in \mathcal{X}$, the corresponding kernel matrix is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$. 
 
 **Representer theorem**: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)_{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle_{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty[ \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function. 
 Consider the following regularized risk minimization problem:
