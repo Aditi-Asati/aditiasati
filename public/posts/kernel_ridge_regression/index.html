@@ -369,7 +369,7 @@
         <div class="author-profile ms-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/aditi_edited_3_hu8dea75ac28eead08bb57e995e325f1c4_201049_120x120_fit_q75_box.jpg' alt="Author Image">
           <h5 class="author-name">Aditi Asati</h5>
-          <p class="text-muted">Monday, June 8, 2020 | 2 minutes</p>
+          <p class="text-muted">Monday, June 8, 2020 | 3 minutes</p>
         </div>
         
         
@@ -394,9 +394,17 @@
 <p>Here, $\lambda$ denotes the tradeoff constant. The first term in the objective function is the training error (also called empirical risk of a predictor function) in terms of linear least squares error. The second term is the regularization term penalizing functions which have large L2-norm squared.</p>
 <p>Linear methods like ridge regression work best when the underlying dataset is sort of linear. However, when we use linear methods to model a non-linear dataset, the machine learning model often tends to underfit the dataset as the model class is not strong enough to predict well on such a dataset.</p>
 <p>Kernel methods were introduced to overcome this problem. Kernel methods allow us to implement linear methods on a non-linear dataset by implicitly embedding the input into a high-dimensional euclidean space in which the data-points become linear.</p>
-<p>In this blog, we will kernelize the Ridge Regression algorithm and see an implementation of it on a dataset using <code>scikit-learn</code> library.</p>
-<p><strong>Representer theorem</strong>: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)<em>{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle</em>{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty[ \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.
-Consider the following regularized risk minimization problem:</p>
+<p>In this blog, we will learn how to kernelize the Ridge Regression algorithm and also see an implementation of it using <code>scikit-learn</code> library.</p>
+<p>For we begin, let&rsquo;s familiarize ourselves with two terms which we will use later on.</p>
+<ul>
+<li>A <strong>kernel function</strong> takes two points in the input space $\mathcal{X}$ and maps them to a real number. Mathematically speaking, a kernel function is a function $k : \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ where $\mathbb{R}$ is the set of all real numbers. Intuitively, kernel function measures how ”similar” two points are in the feature space.</li>
+</ul>
+<p>Now that we have understood what kernel functions are, let us understand kernel matrix.</p>
+<ul>
+<li>Given a kernel function $k$ and a set of points $x_1, &hellip;, x_n \in \mathcal{X}$, the corresponding kernel matrix is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$.</li>
+</ul>
+<p><strong>Representer theorem</strong>: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)<em>{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle</em>{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty) \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.</p>
+<p>Consider the following regularized risk minimization problem:</p>
 <p>$$\min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(|w|_{\mathcal{H}}) \right)$$</p>
 <p>Then, the theorem states that the optimal solution of the problem always exists and is given as</p>
 <p>$${w^* = \sum_{i=1}^{n} \alpha_i k(X_i, \cdot)}$$</p>

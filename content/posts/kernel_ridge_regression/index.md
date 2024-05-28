@@ -34,7 +34,8 @@ Now that we have understood what kernel functions are, let us understand kernel 
 
 - Given a kernel function $k$ and a set of points $x_1, ..., x_n \in \mathcal{X}$, the corresponding kernel matrix is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$. 
 
-**Representer theorem**: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)_{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle_{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty[ \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function. 
+**Representer theorem**: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)_{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle_{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty) \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.
+
 Consider the following regularized risk minimization problem:
     
 $$\min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(\|w\|_{\mathcal{H}}) \right)$$
