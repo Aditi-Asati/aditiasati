@@ -18,38 +18,44 @@ skills:
 
 - name: Python
   logo: /images/sections/skills/python.png
-  summary: "Python is my bread and butter. I am capable to writing servers, CLI tools, data science, automation scripts, tests in it."
-  url: "https://python.org"
+  summary: ""
+  # url: "https://python.org"
 
 - name: Scikit-learn
   logo: /images/sections/skills/scikit-learn_logo.png
-  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
-  url: "https://scikit-learn.org/"
+  summary: ""
+  # url: "https://scikit-learn.org/"
 
 - name: Tensorflow
   logo: /images/sections/skills/tensorflow_logo.png
-  summary: "Capable of writing interactive frontend websites."
-  url: "https://developer.mozilla.org/en-US/docs/Web/Javascript"
+  summary: ""
+  # url: "https://developer.mozilla.org/en-US/docs/Web/Javascript"
 
 - name: Pytorch
   logo: /images/sections/skills/pytorch_logo.png
-  summary: "Capable of writing concurrent, scalable, testable, and maintainable programs."
-  url: "https://go.dev/"
+  summary: ""
+  # url: "https://go.dev/"
+
+- name: Langchain
+  logo: /images/sections/skills/LangChain_logo.png
+  summary: ""
 
 - name: SQL
   logo: /images/sections/skills/mysql_logo.png
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
-  url: "https://www.docker.com/"
+  summary: ""
+  # url: "https://www.docker.com/"
 
 - name: Git
   logo: /images/sections/skills/git.png
-  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with BitBucket."
-  url: "https://git-scm.com/"
+  summary: ""
+  # url: "https://git-scm.com/"
 
 - name: GitHub
   logo: /images/sections/skills/github_logo.png
-  summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
+  summary: ""
 
 - name: Linux
   logo: /images/sections/skills/linux.png
-  summary: "Been using it in form of WSL since last 3 years. Hosted animeviz on a Ubuntu VPS."
+  summary: ""
+
+
