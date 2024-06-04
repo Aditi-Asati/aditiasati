@@ -17,7 +17,7 @@ accomplishments:
     name: E & ICT Academy, IIT Roorkee
     url: https://www.linuxfoundation.org
   courseOverview: This course teaches fundamental data analysis using Numpy, Pandas, and Matplotlib in hands-on manner.  It also helps to understand the basics of some classical machine learning algorithms such as K-Nearest Neighbor, Support Vector Machine, Decision Trees, Linear Regression, etc.
-  certificateURL: "https://example.com"
+  certificateURL: "files/certificate.jpg"
 
 # - name: Machine Learning
 #   timeline: "Jun 2020 - Jan 2021"
