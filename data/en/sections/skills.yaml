@@ -18,44 +18,44 @@ skills:
 
 - name: Python
   logo: /images/sections/skills/python.png
-  summary: ""
+  summary: "Experienced with object oriented programming, writing scripts, using standard libraries."
   # url: "https://python.org"
 
 - name: Scikit-learn
   logo: /images/sections/skills/scikit-learn_logo.png
-  summary: ""
+  summary: "I can code an entire ML pipeline in Scikit-learn."
   # url: "https://scikit-learn.org/"
 
-- name: Tensorflow
-  logo: /images/sections/skills/tensorflow_logo.png
-  summary: ""
+- name: Keras
+  logo: /images/sections/skills/keras_logo.png
+  summary: "Familiar with building and training deep learning models in Keras."
   # url: "https://developer.mozilla.org/en-US/docs/Web/Javascript"
 
 - name: Pytorch
   logo: /images/sections/skills/pytorch_logo.png
-  summary: ""
+  summary: "Capable of building and training deep learning models in Pytorch."
   # url: "https://go.dev/"
 
-- name: Langchain
+- name: LangChain
   logo: /images/sections/skills/LangChain_logo.png
-  summary: ""
+  summary: "I can create chatbots using LangChain."
 
 - name: SQL
   logo: /images/sections/skills/mysql_logo.png
-  summary: ""
+  summary: "Capable of writing queries in SQL."
   # url: "https://www.docker.com/"
 
 - name: Git
   logo: /images/sections/skills/git.png
-  summary: ""
+  summary: "Experienced with git-based development."
   # url: "https://git-scm.com/"
 
 - name: GitHub
   logo: /images/sections/skills/github_logo.png
-  summary: ""
+  summary: "Have been using GitHub to maintain all my projects."
 
 - name: Linux
   logo: /images/sections/skills/linux.png
-  summary: ""
+  summary: "Have used Linux for a year."
 
 

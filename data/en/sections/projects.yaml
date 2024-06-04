@@ -56,7 +56,7 @@ projects:
   summary: "A program which tells the title, summary, authors, publishing date and polarity of the news article just by providing its URL."
   tags: []
 
-- name: Pokedex Using Image Classification (Ongoing)
+- name: Pokedex Using Image Classification
   # logo: /images/sections/projects/toha.png
   role: Developer
   timeline: "Jan 2024 - Present"
