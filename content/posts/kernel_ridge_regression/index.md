@@ -86,23 +86,108 @@ $$grad(Obj)(\alpha) = -\frac{1}{n}K^T(y-K\alpha) + \lambda K\alpha + 0$$
 $$K(-y + K\alpha + n\lambda \alpha) = 0$$
 
 This implies
-$$\alpha = (K + n\lambda I)^{-1}Y$$.
+$$\alpha = (K + n\lambda I)^{-1}Y.$$
 
-And we have obtained the solution of the Kernel Ridge Regression problem.
+And we have obtained the solution of the Kernel Ridge Regression problem!!
 
 Now lets also formulate the evaluation function $f(x)$ in terms of the kernel function, after all the essence of kernelizing an algorithm is to write the optimization problem and the evaluation/ target function in terms of the kernel function/ kernel matrix.
 
 $$f(x) = \langle w, \Phi(x) \rangle = \langle w, k(x, .) \rangle$$
 
+{{<alert type="info">}}
 Note that $\Phi(x) = k_x = k(x, .)$
+{{</alert>}}
 
 Substituting the value of w (given by the representer theorem) into the above equation yields the following:
 
-$$f(x) = \langle \sum_{i=1}^{n} \alpha_i k(X_i, \cdot), \Phi(x) \rangle$$
+$$f(x) = \langle \sum_{i=1}^{n} \alpha_i k(X_i, \cdot), k(x,.) \rangle$$
 
 
-$$f(x) =\sum_{j=1}^n \alpha_jk(X_j,x)$$
+$$f(x) =\sum_{i=1}^n \alpha_i \langle k(X_i, .),k(x,.) \rangle = \sum_{i=1}^n \alpha_i \langle \Phi(X_i),\Phi(x) \rangle$$
 
-```
+{{<alert type="info">}}
+Note that $k(x,y) = \langle \Phi(x), \Phi(y) \rangle$. For more details regarding it, read [here](https://drive.google.com/file/d/1QbEQNjbfIPkVEe-qEvwFPEyLx-tg255r/view?usp=sharing)
+{{</alert>}}
+
+$$f(x) = \sum_{i=1}^n\alpha_ik(X_i, x)$$
+
+We have finally obtained the target function for the kernel ridge regression algorithm. Observe that the function depends only on the kernel and not on the input points explicitly as discussed earlier. 
+
+Now, lets look at the implementation of the Kernel Ridge Regression algorithm using `scikit-learn` library.
+
+We will begin by installing necessary dependencies.
+Run the following command on the terminal.
+
+```py
 pip install scikit-learn
 ```
+
+For demonstration, we will use the diabetes toy dataset present in the `scikit-learn` library.
+
+Lets now import the required utilities.
+
+```py
+from sklearn.datasets import load_diabetes
+from sklearn.kernel_ridge import KernelRidge
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+```
+
+We will now load the diabetes dataset and extract the `data` matrix and the `target` array.
+
+```py
+diabetes = load_diabetes()
+data = diabetes.data
+target = diabetes.target
+```
+
+Its time to split the dataset into train and test sets in order to evaluate the generalization performance of the Kernel Ridge Regression (KRR) model and also to avoid overfitting.
+
+```py
+X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
+```
+
+We will be tuning the hyperparameters of the KRR model using Gridsearch cross validation method. 
+
+{{<alert type="info">}}
+It's crucial to always tune the hyperparameters of any machine learning model since the performance of the model is very sensitive to the choice of the hyperparameters. (As an example, think of how changing the regularization constant in KRR algorithm can affect the training of the model)
+{{</alert>}}
+
+```py
+krr_model = KernelRidge()
+param_grid = {"alpha": [1e-5, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 2], "kernel": ["linear", "rbf", "poly", "sigmoid", ]}
+grid_search = GridSearchCV(krr_model, param_grid, scoring="neg_mean_absolute_error", n_jobs=-1, cv=5)
+```
+{{<alert type="info">}}
+To understand Grid search cross validation, read [here](https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b)
+{{</alert>}}
+
+Lets train our KRR model on the diabetes dataset and get the best hyperparameter values along with the trained model.
+
+```py
+grid_search.fit(X_train, y_train)
+best_params = grid_search.best_params_
+print(best_params)
+best_model = grid_search.best_estimator_
+```
+
+Now that we have trained our KRR model, its time to make predictions on the test set and compute the performance metrics on both the training and test sets.
+
+```py
+predictions = best_model.predict(X_test)
+test_mae = mean_absolute_error(y_test, predictions)
+test_mse = mean_squared_error(y_test, predictions)
+
+train_predictions = best_model.predict(X_train)
+train_mae = mean_absolute_error(y_train, train_predictions)
+train_mse = mean_squared_error(y_train, train_predictions)
+
+print(f"Test MAE : {test_mae} and Test MSE : {test_mse}")
+print(f"Train MAE : {train_mae} and train MSE : {train_mse}")
+```
+
+Here's the full code:
+{{< gist Aditi-Asati 996d0cd86b7fd15911cefe44a608c225 >}}
+
+Woohoo! We have come a long way. I hope you found this blog helpful.
+Thanks for reading!
