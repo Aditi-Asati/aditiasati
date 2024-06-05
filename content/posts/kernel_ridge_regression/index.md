@@ -32,32 +32,74 @@ For we begin, let's familiarize ourselves with two terms which we will use later
 
 Now that we have understood what kernel functions are, let us understand kernel matrix.
 
-- Given a kernel function $k$ and a set of points $x_1, ..., x_n \in \mathcal{X}$, the corresponding kernel matrix is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$. 
+* Given a kernel function $k$ and a set of points $x_1, ..., x_n \in \mathcal{X}$, the corresponding **kernel matrix** is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$. So each $ij$-th entry in the kernel matrix $K$ is the value of the kernel function at points $x_i$ and $x_j$.
 
-**Representer theorem**: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)_{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle_{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty) \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.
+We are now ready to derive the kernel version of the Ridge Regression algorithm.
 
-Consider the following regularized risk minimization problem:
-    
-$$\min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(\|w\|_{\mathcal{H}}) \right)$$
-    
-Then, the theorem states that the optimal solution of the problem always exists and is given as
-    
+The idea is to rewrite the optimization problem of the Ridge Regression algorithm in terms of the kernel function or the kernel matrix. To this end, we will invoke the ***Representer theorem*** which basically states that for an optimization problem of the form:
+$$ \min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(\|w\|_{\mathcal{H}}) \right) $$ 
+
+$\quad$ where:
+- $R_n$ is the empirical risk (training error) 
+- $\Omega$ is the regularizer function
+- $\lambda$ is the tradeff constant
+- $\mathcal{H}$ is the euclidean feature space 
+- $w$ is a vector in $\mathcal{H}$ 
+
+{{<alert type="tip">}}
+$\mathcal{H}$ is actually the space of all real-valued functions from the input space $X$ to $\mathbb{R}$. It is infact a vector space.
+
+{{</alert>}}
+
+The solution exists and is given by:
 $${w^* = \sum_{i=1}^{n} \alpha_i k(X_i, \cdot)}$$
-    
-From the representer theorem, the solution $w$ of problem can be expressed as a linear combination of input points in the feature space:
+
+$\quad$ where:
+- $\alpha_i$ is a real number for all $i$
+- $k(X_i, .)$ is a function from the input space to $\mathbb{R}$.
+
+Notice that the optimization problem in Ridge Regression appears in the same form as mentioned in the Representer theorem. 
+Hence, we can apply the theorem and obtain a solution $w$ of the Ridge Regression problem as a linear combination of input points in the feature space:
 
 $$w = \sum_{j=1}^n \alpha_j\Phi(X_j)$$
 
-Substituting $w$ in the above ridge regression problem yields the following optimization problem:
+Now this $w$ can be substituted back into the above ridge regression problem yielding the following optimization problem in terms of the kernel matrix $K$:
 
 $$\min_{\alpha \in \mathbb{R}^n} \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$
 
-where $K$ is the kernel matrix defined.
-The solution can be derived analytically and is given by
+The solution to this optimization problem can be derived analytically. Let's take a look at the derivation:
 
-$${\alpha = (n\lambda I + K)^{-1}Y}$$
+**Step 1**:
+The objective function in the above optimization problem is 
 
-We can also calculate the prediction for an unseen point just using kernels as
+$$Obj(\alpha) := \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$
+
+It is a convex function, therefore, any local minima is already a global minima of the function. Hence, it is enough to find one local minima of the objective function.
+
+**Step 2**:
+In order to find a local minima, we will take the derivative of the objective function with respect to $\alpha$ and set it to 0:
+
+$$grad(Obj)(\alpha) = -\frac{1}{n}K^T(y-K\alpha) + \lambda K\alpha + 0$$
+
+(Note that $K$ is symmetric)
+
+$$K(-y + K\alpha + n\lambda \alpha) = 0$$
+
+This implies
+$$\alpha = (K + n\lambda I)^{-1}Y$$.
+
+And we have obtained the solution of the Kernel Ridge Regression problem.
+
+Now lets also formulate the evaluation function $f(x)$ in terms of the kernel function, after all the essence of kernelizing an algorithm is to write the optimization problem and the evaluation/ target function in terms of the kernel function/ kernel matrix.
+
+$$f(x) = \langle w, \Phi(x) \rangle = \langle w, k(x, .) \rangle$$
+
+Note that $\Phi(x) = k_x = k(x, .)$
+
+Substituting the value of w (given by the representer theorem) into the above equation yields the following:
+
+$$f(x) = \langle \sum_{i=1}^{n} \alpha_i k(X_i, \cdot), \Phi(x) \rangle$$
+
 
 $$f(x) =\sum_{j=1}^n \alpha_jk(X_j,x)$$
 
