@@ -1,6 +1,6 @@
 ---
 title: "How to Kernelize the Ridge Regression Algorithm"
-date: 2024-06-04T08:06:25+06:00
+date: 2024-06-05T08:06:25+06:00
 description: Markdown rendering samples
 menu:
   sidebar:
