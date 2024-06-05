@@ -95,7 +95,7 @@ Now lets also formulate the evaluation function $f(x)$ in terms of the kernel fu
 $$f(x) = \langle w, \Phi(x) \rangle = \langle w, k(x, .) \rangle$$
 
 {{<alert type="info">}}
-Note that $\Phi(x) = k_x = k(x, .)$
+Note that $\Phi(x) = k_x = k(x, .)$.
 {{</alert>}}
 
 Substituting the value of w (given by the representer theorem) into the above equation yields the following:
@@ -106,7 +106,7 @@ $$f(x) = \langle \sum_{i=1}^{n} \alpha_i k(X_i, \cdot), k(x,.) \rangle$$
 $$f(x) =\sum_{i=1}^n \alpha_i \langle k(X_i, .),k(x,.) \rangle = \sum_{i=1}^n \alpha_i \langle \Phi(X_i),\Phi(x) \rangle$$
 
 {{<alert type="info">}}
-Note that $k(x,y) = \langle \Phi(x), \Phi(y) \rangle$. For more details regarding it, read [here](https://drive.google.com/file/d/1QbEQNjbfIPkVEe-qEvwFPEyLx-tg255r/view?usp=sharing)
+Note that $k(x,y) = \langle \Phi(x), \Phi(y) \rangle$. For more details regarding it, read [here](https://drive.google.com/file/d/1QbEQNjbfIPkVEe-qEvwFPEyLx-tg255r/view?usp=sharing).
 {{</alert>}}
 
 $$f(x) = \sum_{i=1}^n\alpha_ik(X_i, x)$$
@@ -150,7 +150,7 @@ X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
 We will be tuning the hyperparameters of the KRR model using Gridsearch cross validation method. 
 
 {{<alert type="info">}}
-It's crucial to always tune the hyperparameters of any machine learning model since the performance of the model is very sensitive to the choice of the hyperparameters. (As an example, think of how changing the regularization constant in KRR algorithm can affect the training of the model)
+It's crucial to always tune the hyperparameters of any machine learning model since the performance of the model is very sensitive to the choice of the hyperparameters. As an example, think of how changing the regularization constant in KRR algorithm can affect the training of the model.
 {{</alert>}}
 
 ```py
@@ -159,7 +159,7 @@ param_grid = {"alpha": [1e-5, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 2], "kernel"
 grid_search = GridSearchCV(krr_model, param_grid, scoring="neg_mean_absolute_error", n_jobs=-1, cv=5)
 ```
 {{<alert type="info">}}
-To understand Grid search cross validation, read [here](https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b)
+To understand Grid search cross validation, read [here](https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b).
 {{</alert>}}
 
 Lets train our KRR model on the diabetes dataset and get the best hyperparameter values along with the trained model.
