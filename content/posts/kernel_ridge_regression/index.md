@@ -152,7 +152,7 @@ Its time to split the dataset into train and test sets in order to evaluate the 
 ```py
 X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
 ```
-
+{{< vs 2 >}}
 {{<alert type="info">}}
 It's common practice to standardize the training and testing features (`X_train` and `X_test`) before training a model. However, we omit this step here because the feature matrix `data` provided by the `load_diabetes()` function is already standardized.
 {{</alert>}}
@@ -161,6 +161,7 @@ It's common practice to standardize the training and testing features (`X_train`
 
 We will be tuning the hyperparameters of the KRR model using Gridsearch cross validation method. 
 
+{{< vs 2 >}}
 {{<alert type="info">}}
 It's crucial to always tune the hyperparameters of any machine learning model while training, since the performance of the model is very sensitive to the choice of the hyperparameters. As an example, think of how changing the regularization constant in KRR algorithm can affect its training.
 {{</alert>}}
@@ -170,6 +171,8 @@ krr_model = KernelRidge()
 param_grid = {"alpha": [1e-5, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 2], "kernel": ["linear", "rbf", "poly", "sigmoid", ]}
 grid_search = GridSearchCV(krr_model, param_grid, scoring="neg_mean_absolute_error", n_jobs=-1, cv=5)
 ```
+
+{{< vs 2 >}}
 {{<alert type="info">}}
 To understand Grid search cross validation, read [here](https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b).
 {{</alert>}}
