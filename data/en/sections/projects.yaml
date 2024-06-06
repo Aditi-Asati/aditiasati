@@ -56,14 +56,14 @@ projects:
   summary: "A program which tells the title, summary, authors, publishing date and polarity of the news article just by providing its URL."
   tags: []
 
-- name: Pokedex Using Image Classification
-  # logo: /images/sections/projects/toha.png
-  role: Developer
-  timeline: "Jan 2024 - Present"
-  repo: "https://github.com/Aditi-Asati/Pokedex-Using-Image-Classification"
-  # url: https://github.com/shravanasati/stellapy
-  summary: "Its a pokedex which tells the information about the pokemon just by looking at its image."
-  tags: []
+# - name: Pokedex Using Image Classification
+#   # logo: /images/sections/projects/toha.png
+#   role: Developer
+#   timeline: "Jan 2024 - Present"
+#   repo: "https://github.com/Aditi-Asati/Pokedex-Using-Image-Classification"
+#   # url: https://github.com/shravanasati/stellapy
+#   summary: "Its a pokedex which tells the information about the pokemon just by looking at its image."
+#   tags: []
 
 # - name: pyscreenrec
 #   # logo: /images/sections/projects/toha.png
