@@ -1,6 +1,6 @@
 ---
 title: "How to Kernelize the Ridge Regression Algorithm"
-date: 2024-06-05T08:06:25+06:00
+date: 2024-06-06T08:06:25+06:00
 description: Markdown rendering samples
 menu:
   sidebar:
@@ -66,8 +66,11 @@ $$w = \sum_{j=1}^n \alpha_j\Phi(X_j)$$
 Now this $w$ can be substituted back into the above ridge regression problem yielding the following optimization problem in terms of the kernel matrix $K$:
 
 $$\min_{\alpha \in \mathbb{R}^n} \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$
+{{< vs 3 >}}
 
 The solution to this optimization problem can be derived analytically. Let's take a look at the derivation:
+
+{{< vs 3 >}}
 
 **Step 1**:
 The objective function in the above optimization problem is 
@@ -121,6 +124,7 @@ Run the following command on the terminal.
 ```py
 pip install scikit-learn
 ```
+{{< vs 3 >}}
 
 For demonstration, we will use the diabetes toy dataset present in the `scikit-learn` library.
 
@@ -132,6 +136,7 @@ from sklearn.kernel_ridge import KernelRidge
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 ```
+{{< vs 3 >}}
 
 We will now load the diabetes dataset and extract the `data` matrix and the `target` array.
 
@@ -140,6 +145,7 @@ diabetes = load_diabetes()
 data = diabetes.data
 target = diabetes.target
 ```
+{{< vs 3 >}}
 
 Its time to split the dataset into train and test sets in order to evaluate the generalization performance of the Kernel Ridge Regression (KRR) model and also to avoid overfitting.
 
@@ -147,10 +153,16 @@ Its time to split the dataset into train and test sets in order to evaluate the 
 X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
 ```
 
+{{<alert type="info">}}
+It's common practice to standardize the training and testing features (`X_train` and `X_test`) before training a model. However, we omit this step here because the feature matrix `data` provided by the `load_diabetes()` function is already standardized.
+{{</alert>}}
+
+{{< vs 3 >}}
+
 We will be tuning the hyperparameters of the KRR model using Gridsearch cross validation method. 
 
 {{<alert type="info">}}
-It's crucial to always tune the hyperparameters of any machine learning model since the performance of the model is very sensitive to the choice of the hyperparameters. As an example, think of how changing the regularization constant in KRR algorithm can affect the training of the model.
+It's crucial to always tune the hyperparameters of any machine learning model while training, since the performance of the model is very sensitive to the choice of the hyperparameters. As an example, think of how changing the regularization constant in KRR algorithm can affect its training.
 {{</alert>}}
 
 ```py
@@ -162,6 +174,8 @@ grid_search = GridSearchCV(krr_model, param_grid, scoring="neg_mean_absolute_err
 To understand Grid search cross validation, read [here](https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b).
 {{</alert>}}
 
+{{< vs 3 >}}
+
 Lets train our KRR model on the diabetes dataset and get the best hyperparameter values along with the trained model.
 
 ```py
@@ -170,6 +184,7 @@ best_params = grid_search.best_params_
 print(best_params)
 best_model = grid_search.best_estimator_
 ```
+{{< vs 3 >}}
 
 Now that we have trained our KRR model, its time to make predictions on the test set and compute the performance metrics on both the training and test sets.
 
@@ -185,6 +200,7 @@ train_mse = mean_squared_error(y_train, train_predictions)
 print(f"Test MAE : {test_mae} and Test MSE : {test_mse}")
 print(f"Train MAE : {train_mae} and train MSE : {train_mse}")
 ```
+{{< vs 3 >}}
 
 Here's the full code:
 {{< gist Aditi-Asati 996d0cd86b7fd15911cefe44a608c225 >}}
