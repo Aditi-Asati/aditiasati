@@ -21,13 +21,32 @@ section:
 
 # your projects
 projects:
+
+- name: Hazelnut
+  # logo: /images/sections/projects/kubernetes.png
+  role: Developer
+  timeline: "June 2024"
+  # repo: https://github.com/Aditi-Asati/Hazelnut # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  url: "https://youtu.be/5KhLWRgA0XA?si=MFBDRvz7RPUf_EJQ"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: "I developed a LangChain-powered chatbot that generates and executes SQL queries from natural language input, ensuring it is aware of the database schema and conversation context. I built the application's frontend with Streamlit and developed the backend using FastAPI. Additionally, I containerized the application with Docker for efficient deployment."
+  tags: []
+
+  - name: Tomato Doctor
+  # logo: /images/sections/projects/kubernetes.png
+  role: Developer
+  timeline: "June 2024"
+  # repo: https://github.com/Aditi-Asati/Tomato-Doctor # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  url: "https://youtu.be/mgK7v0i_HpI?si=oWtpi5xlsUbrXUEB"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: "I developed a deep learning model using transfer learning and TensorFlow to diagnose tomato leaf diseases with 86% accuracy on the test dataset. Each prediction includes a confidence score to indicate its accuracy. Moreover, I built the web application with Streamlit and FastAPI, and containerized it with Docker for efficient deployment."
+  tags: []
+
 - name: Interpolation for Brain Age Prediction
   # logo: /images/sections/projects/kubernetes.png
   role: Research Student, Coder
   timeline: "June 2023 - Present"
   # repo: https://github.com/shravanasati/animeviz # If your project is a public repo on GitHub, then provide this link. it will show star count.
   # url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-  summary: "Explored a novel approach to deal with the data harmonization challenge in neuroimaging research. We demonstrated the usability of this approach and systematically studied the impact of interpolated data."
+  summary: "I conducted in-depth research on using synthetic data to mitigate site effects from structural MRI data. I designed and implemented the SMOTE algorithm in Python to generate synthetic data points and built pipelines for running various experiments using Scikit-learn, Python, and Shell Scripting to explore their effectiveness on brain age prediction. Furthermore, I articulated my research findings in a detailed thesis document and successfully defended the work in a 30-minute oral presentation, securing 8.9/10 project score."
   tags: []
 
 - name: AI Bicep Curls Counter
