@@ -30,8 +30,8 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2020-06-08T08:06:25+06:00">
-    <meta property="article:modified_time" content="2020-06-08T08:06:25+06:00">
+    <meta property="article:published_time" content="2024-06-06T08:06:25+06:00">
+    <meta property="article:modified_time" content="2024-06-06T08:06:25+06:00">
 
     
   <meta name="twitter:card" content="summary">
@@ -213,9 +213,9 @@
             
             
             
-              
-              
             
+              
+              
             
             
               
@@ -252,11 +252,11 @@
                   
                   
                   
-                    
-                    
-                      <a class="dropdown-item" href="/#featured-posts">Featured Posts</a>
-                    
                   
+                    
+                    
+                      <a class="dropdown-item" href="/#recent-posts">Recent Posts</a>
+                    
                   
                   
                     
@@ -369,7 +369,7 @@
         <div class="author-profile ms-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/aditi_edited_3_hu8dea75ac28eead08bb57e995e325f1c4_201049_120x120_fit_q75_box.jpg' alt="Author Image">
           <h5 class="author-name">Aditi Asati</h5>
-          <p class="text-muted">Monday, June 8, 2020 | 3 minutes</p>
+          <p class="text-muted">Thursday, June 6, 2024 | 6 minutes</p>
         </div>
         
         
@@ -401,24 +401,169 @@
 </ul>
 <p>Now that we have understood what kernel functions are, let us understand kernel matrix.</p>
 <ul>
-<li>Given a kernel function $k$ and a set of points $x_1, &hellip;, x_n \in \mathcal{X}$, the corresponding kernel matrix is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$.</li>
+<li>Given a kernel function $k$ and a set of points $x_1, &hellip;, x_n \in \mathcal{X}$, the corresponding <strong>kernel matrix</strong> is defined as $K = (k(x_i, x_j))_{i,j \in n \times n}$. So each $ij$-th entry in the kernel matrix $K$ is the value of the kernel function at points $x_i$ and $x_j$.</li>
 </ul>
-<p><strong>Representer theorem</strong>: Let $\mathcal{X}$ and $\mathcal{Y}$ be the input space and output space respectively. Let $k : \mathcal{X} \times \mathcal{X} \rightarrow\mathbb{R}$ be a kernel, and let $\mathcal{H}$ be the corresponding RKHS. Given a training set $(X_i, Y_i)<em>{i=1, \ldots, n} \subset \mathcal{X} \times \mathcal{Y}$ and classifier $f_w(x) := \langle w, \Phi(x) \rangle</em>{\mathcal{H}}$, let $R_n$ denote the empirical risk of the classifier in relation to a loss function $l$, and $\Omega : [0, \infty) \rightarrow \mathbb{R}$, which is a strictly monotonically increasing function.</p>
-<p>Consider the following regularized risk minimization problem:</p>
-<p>$$\min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(|w|_{\mathcal{H}}) \right)$$</p>
-<p>Then, the theorem states that the optimal solution of the problem always exists and is given as</p>
-<p>$${w^* = \sum_{i=1}^{n} \alpha_i k(X_i, \cdot)}$$</p>
-<p>From the representer theorem, the solution $w$ of problem can be expressed as a linear combination of input points in the feature space:</p>
+<p>We are now ready to derive the kernel version of the Ridge Regression algorithm.</p>
+<p>The idea is to rewrite the optimization problem of the Ridge Regression algorithm in terms of the kernel function or the kernel matrix. To this end, we will invoke the <em><strong>Representer theorem</strong></em> which basically states that for an optimization problem of the form:
+$$ \min_{w \in \mathcal{H}} \left( R_n(w) + \lambda \Omega(|w|_{\mathcal{H}}) \right) $$</p>
+<p>$\quad$ where:</p>
+<ul>
+<li>$R_n$ is the empirical risk (training error)</li>
+<li>$\Omega$ is the regularizer function</li>
+<li>$\lambda$ is the tradeff constant</li>
+<li>$\mathcal{H}$ is the euclidean feature space</li>
+<li>$w$ is a vector in $\mathcal{H}$</li>
+</ul>
+
+
+
+
+<div class="alert tip">
+    <span><i data-feather="alert-circle"></i></span>
+    <span><strong>$\mathcal{H}$ is actually the space of all real-valued functions from the input space $X$ to $\mathbb{R}$. It is infact a vector space.</strong></span>
+</div>
+
+<p>The solution exists and is given by:
+$${w^* = \sum_{i=1}^{n} \alpha_i k(X_i, \cdot)}$$</p>
+<p>$\quad$ where:</p>
+<ul>
+<li>$\alpha_i$ is a real number for all $i$</li>
+<li>$k(X_i, .)$ is a function from the input space to $\mathbb{R}$.</li>
+</ul>
+<p>Notice that the optimization problem in Ridge Regression appears in the same form as mentioned in the Representer theorem.
+Hence, we can apply the theorem and obtain a solution $w$ of the Ridge Regression problem as a linear combination of input points in the feature space:</p>
 <p>$$w = \sum_{j=1}^n \alpha_j\Phi(X_j)$$</p>
-<p>Substituting $w$ in the above ridge regression problem yields the following optimization problem:</p>
-<p>$$\min_{\alpha \in \mathbb{R}^n} \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$</p>
-<p>where $K$ is the kernel matrix defined.
-The solution can be derived analytically and is given by</p>
-<p>$${\alpha = (n\lambda I + K)^{-1}Y}$$</p>
-<p>We can also calculate the prediction for an unseen point just using kernels as</p>
-<p>$$f(x) =\sum_{j=1}^n \alpha_jk(X_j,x)$$</p>
-<pre tabindex="0"><code>pip install scikit-learn
-</code></pre>
+<p>Now this $w$ can be substituted back into the above ridge regression problem yielding the following optimization problem in terms of the kernel matrix $K$:</p>
+<p>$$\min_{\alpha \in \mathbb{R}^n} \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$
+<div style="margin-top: 3rem;"></div></p>
+<p>The solution to this optimization problem can be derived analytically. Let&rsquo;s take a look at the derivation:</p>
+<div style="margin-top: 3rem;"></div>
+<p><strong>Step 1</strong>:
+The objective function in the above optimization problem is</p>
+<p>$$Obj(\alpha) := \frac{1}{n} \lVert Y - K\alpha \rVert_2^2 + \lambda \alpha^T K \alpha$$</p>
+<p>It is a convex function, therefore, any local minima is already a global minima of the function. Hence, it is enough to find one local minima of the objective function.</p>
+<p><strong>Step 2</strong>:
+In order to find a local minima, we will take the derivative of the objective function with respect to $\alpha$ and set it to 0:</p>
+<p>$$grad(Obj)(\alpha) = -\frac{1}{n}K^T(y-K\alpha) + \lambda K\alpha + 0$$</p>
+<p>(Note that $K$ is symmetric)</p>
+<p>$$K(-y + K\alpha + n\lambda \alpha) = 0$$</p>
+<p>This implies
+$$\alpha = (K + n\lambda I)^{-1}Y.$$</p>
+<p>And we have obtained the solution of the Kernel Ridge Regression problem!!</p>
+<p>Now lets also formulate the evaluation function $f(x)$ in terms of the kernel function, after all the essence of kernelizing an algorithm is to write the optimization problem and the evaluation/ target function in terms of the kernel function/ kernel matrix.</p>
+<p>$$f(x) = \langle w, \Phi(x) \rangle = \langle w, k(x, .) \rangle$$</p>
+
+
+
+    
+
+
+<div class="alert info">
+    <span><i data-feather="info"></i></span>
+    <span><strong>Note that $\Phi(x) = k_x = k(x, .)$.</strong></span>
+</div>
+
+<p>Substituting the value of w (given by the representer theorem) into the above equation yields the following:</p>
+<p>$$f(x) = \langle \sum_{i=1}^{n} \alpha_i k(X_i, \cdot), k(x,.) \rangle$$</p>
+<p>$$f(x) =\sum_{i=1}^n \alpha_i \langle k(X_i, .),k(x,.) \rangle = \sum_{i=1}^n \alpha_i \langle \Phi(X_i),\Phi(x) \rangle$$</p>
+
+
+
+    
+
+
+<div class="alert info">
+    <span><i data-feather="info"></i></span>
+    <span><strong>Note that $k(x,y) = \langle \Phi(x), \Phi(y) \rangle$. For more details regarding it, read <a href="https://drive.google.com/file/d/1QbEQNjbfIPkVEe-qEvwFPEyLx-tg255r/view?usp=sharing" target="_blank" rel="noopener">here</a>.</strong></span>
+</div>
+
+<p>$$f(x) = \sum_{i=1}^n\alpha_ik(X_i, x)$$</p>
+<p>We have finally obtained the target function for the kernel ridge regression algorithm. Observe that the function depends only on the kernel and not on the input points explicitly as discussed earlier.</p>
+<p>Now, lets look at the implementation of the Kernel Ridge Regression algorithm using <code>scikit-learn</code> library.</p>
+<p>We will begin by installing necessary dependencies.
+Run the following command on the terminal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>pip install scikit<span style="color:#f92672">-</span>learn
+</span></span></code></pre></div><div style="margin-top: 3rem;"></div>
+<p>For demonstration, we will use the diabetes toy dataset present in the <code>scikit-learn</code> library.</p>
+<p>Lets now import the required utilities.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_diabetes
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.kernel_ridge <span style="color:#f92672">import</span> KernelRidge
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split, GridSearchCV
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_absolute_error, mean_squared_error
+</span></span></code></pre></div><div style="margin-top: 3rem;"></div>
+<p>We will now load the diabetes dataset and extract the <code>data</code> matrix and the <code>target</code> array.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>diabetes <span style="color:#f92672">=</span> load_diabetes()
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> diabetes<span style="color:#f92672">.</span>data
+</span></span><span style="display:flex;"><span>target <span style="color:#f92672">=</span> diabetes<span style="color:#f92672">.</span>target
+</span></span></code></pre></div><div style="margin-top: 3rem;"></div>
+<p>Its time to split the dataset into train and test sets in order to evaluate the generalization performance of the Kernel Ridge Regression (KRR) model and also to avoid overfitting.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(data, target, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+</span></span></code></pre></div><p><div style="margin-top: 2rem;"></div>
+
+
+
+    
+
+
+<div class="alert info">
+    <span><i data-feather="info"></i></span>
+    <span><strong>It&rsquo;s common practice to standardize the training and testing features (<code>X_train</code> and <code>X_test</code>) before training a model. However, we omit this step here because the feature matrix <code>data</code> provided by the <code>load_diabetes()</code> function is already standardized.</strong></span>
+</div>
+</p>
+<div style="margin-top: 3rem;"></div>
+<p>We will be tuning the hyperparameters of the KRR model using Gridsearch cross validation method.</p>
+<p><div style="margin-top: 2rem;"></div>
+
+
+
+    
+
+
+<div class="alert info">
+    <span><i data-feather="info"></i></span>
+    <span><strong>It&rsquo;s crucial to always tune the hyperparameters of any machine learning model while training, since the performance of the model is very sensitive to the choice of the hyperparameters. As an example, think of how changing the regularization constant in KRR algorithm can affect its training.</strong></span>
+</div>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>krr_model <span style="color:#f92672">=</span> KernelRidge()
+</span></span><span style="display:flex;"><span>param_grid <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;alpha&#34;</span>: [<span style="color:#ae81ff">1e-5</span>, <span style="color:#ae81ff">0.00001</span>, <span style="color:#ae81ff">0.0001</span>, <span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>], <span style="color:#e6db74">&#34;kernel&#34;</span>: [<span style="color:#e6db74">&#34;linear&#34;</span>, <span style="color:#e6db74">&#34;rbf&#34;</span>, <span style="color:#e6db74">&#34;poly&#34;</span>, <span style="color:#e6db74">&#34;sigmoid&#34;</span>, ]}
+</span></span><span style="display:flex;"><span>grid_search <span style="color:#f92672">=</span> GridSearchCV(krr_model, param_grid, scoring<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;neg_mean_absolute_error&#34;</span>, n_jobs<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span></code></pre></div><p><div style="margin-top: 2rem;"></div>
+
+
+
+    
+
+
+<div class="alert info">
+    <span><i data-feather="info"></i></span>
+    <span><strong>To understand Grid search cross validation, read <a href="https://towardsdatascience.com/cross-validation-and-grid-search-efa64b127c1b" target="_blank" rel="noopener">here</a>.</strong></span>
+</div>
+</p>
+<div style="margin-top: 3rem;"></div>
+<p>Lets train our KRR model on the diabetes dataset and get the best hyperparameter values along with the trained model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>grid_search<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>best_params <span style="color:#f92672">=</span> grid_search<span style="color:#f92672">.</span>best_params_
+</span></span><span style="display:flex;"><span>print(best_params)
+</span></span><span style="display:flex;"><span>best_model <span style="color:#f92672">=</span> grid_search<span style="color:#f92672">.</span>best_estimator_
+</span></span></code></pre></div><div style="margin-top: 3rem;"></div>
+<p>Now that we have trained our KRR model, its time to make predictions on the test set and compute the performance metrics on both the training and test sets.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> best_model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>test_mae <span style="color:#f92672">=</span> mean_absolute_error(y_test, predictions)
+</span></span><span style="display:flex;"><span>test_mse <span style="color:#f92672">=</span> mean_squared_error(y_test, predictions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>train_predictions <span style="color:#f92672">=</span> best_model<span style="color:#f92672">.</span>predict(X_train)
+</span></span><span style="display:flex;"><span>train_mae <span style="color:#f92672">=</span> mean_absolute_error(y_train, train_predictions)
+</span></span><span style="display:flex;"><span>train_mse <span style="color:#f92672">=</span> mean_squared_error(y_train, train_predictions)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Test MAE : </span><span style="color:#e6db74">{</span>test_mae<span style="color:#e6db74">}</span><span style="color:#e6db74"> and Test MSE : </span><span style="color:#e6db74">{</span>test_mse<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Train MAE : </span><span style="color:#e6db74">{</span>train_mae<span style="color:#e6db74">}</span><span style="color:#e6db74"> and train MSE : </span><span style="color:#e6db74">{</span>train_mse<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><div style="margin-top: 3rem;"></div>
+<p>Here&rsquo;s the full code:
+<script src="https://gist.github.com/Aditi-Asati/996d0cd86b7fd15911cefe44a608c225.js"></script>
+</p>
+<p>Woohoo! We have come a long way. I hope you found this blog helpful.
+Thanks for reading!</p>
+
         </div>
 
         
@@ -513,6 +658,40 @@ The solution can be derived analytically and is given by</p>
       <hr />
 
       
+      
+        
+    
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    (function () {
+      
+      
+      if (window.location.hostname == "localhost") return;
+
+      var dsq = document.createElement("script");
+      dsq.type = "text/javascript";
+      dsq.async = true;
+      var disqus_shortname = "toha-example-site";
+      dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+      (
+        document.getElementsByTagName("head")[0] ||
+        document.getElementsByTagName("body")[0]
+      ).appendChild(dsq);
+    })();
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript"
+      >comments powered by Disqus.</a
+    ></noscript
+  >
+  <a href="https://disqus.com/" class="dsq-brlink"
+    >comments powered by <span class="logo-disqus">Disqus</span></a
+  >
+
+
+
+
       
 
       
@@ -658,14 +837,14 @@ The solution can be derived analytically and is given by</p>
               
               
               
+              
                 
                 
                   
                 
                 <li class="nav-item">
-                  <a class="smooth-scroll" href="http://localhost:1313/#featured-posts">Featured Posts</a>
+                  <a class="smooth-scroll" href="http://localhost:1313/#recent-posts">Recent Posts</a>
                 </li>
-              
               
               
                 
@@ -743,7 +922,7 @@ The solution can be derived analytically and is given by</p>
   </footer>
 
 
-    <script src="/application.7c180bdd63f8062f9e8e1ecc6173f921c6c8d7994a5543bfc892ac55ea4f7a07.js" integrity="sha256-fBgL3WP4Bi&#43;ejh7MYXP5IcbI15lKVUO/yJKsVepPegc=" defer></script>
+    <script src="/application.38ec97bbce350670000654553595ab987de35df63a03e0f76c1a1594df66b9fd.js" integrity="sha256-OOyXu841BnAABlRVNZWrmH3jXfY6A&#43;D3bBoVlN9muf0=" defer></script>
 
 
     

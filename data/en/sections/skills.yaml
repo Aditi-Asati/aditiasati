@@ -21,13 +21,18 @@ skills:
   summary: "Experienced with object oriented programming, writing scripts, using standard libraries."
   # url: "https://python.org"
 
+- name: SQL
+  logo: /images/sections/skills/mysql_logo.png
+  summary: "Capable of writing queries in SQL."
+  # url: "https://www.docker.com/"
+
 - name: Scikit-learn
   logo: /images/sections/skills/scikit-learn_logo.png
   summary: "I can code an entire ML pipeline in Scikit-learn."
   # url: "https://scikit-learn.org/"
 
-- name: Keras
-  logo: /images/sections/skills/keras_logo.png
+- name: Tensorflow
+  logo: /images/sections/skills/tensorflow_logo.png
   summary: "Familiar with building and training deep learning models in Keras."
   # url: "https://developer.mozilla.org/en-US/docs/Web/Javascript"
 
@@ -40,10 +45,17 @@ skills:
   logo: /images/sections/skills/LangChain_logo.png
   summary: "I can create chatbots using LangChain."
 
-- name: SQL
-  logo: /images/sections/skills/mysql_logo.png
-  summary: "Capable of writing queries in SQL."
-  # url: "https://www.docker.com/"
+- name: FastAPI
+  logo: /images/sections/skills/fastapi_logo.png
+  summary: "Capable of writing APIs using FastAPI."
+
+- name: Streamlit
+  logo: /images/sections/skills/streamlit_logo.png
+  summary: "I have written frontend for my projects with Streamlit"
+
+- name: Docker
+  logo: /images/sections/skills/docker_logo.png
+  summary: "Have containerized entire applications in Docker for seamless deployment."
 
 - name: Git
   logo: /images/sections/skills/git.png

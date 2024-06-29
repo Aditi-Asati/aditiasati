@@ -6,10 +6,10 @@
     <description>Recent content on Aditi Asati</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 08 Jun 2020 08:06:25 +0600</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Thu, 06 Jun 2024 08:06:25 +0600</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
       <title>How to Kernelize the Ridge Regression Algorithm</title>
       <link>http://localhost:1313/posts/kernel_ridge_regression/</link>
-      <pubDate>Mon, 08 Jun 2020 08:06:25 +0600</pubDate>
+      <pubDate>Thu, 06 Jun 2024 08:06:25 +0600</pubDate>
       
       <guid>http://localhost:1313/posts/kernel_ridge_regression/</guid>
       <description>The ridge regression algorithm learns a linear function to map input points to a real number by minimizing an objective function. The optimization problem in ridge regression is given by:
